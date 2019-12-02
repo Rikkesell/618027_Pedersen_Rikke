@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Digital Methods: Learning Journal Template}
+\author{Rikke Grønning Sell Pedersen}
+\date{Autumn 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{31-10-2019}
+\subsection{Thoughts / Intentions}
+\subsection{Action}
+\subsection{Results}
+\subsection{Final Thoughts}
+
+
+
+
+\pagebreak{}
+
+\section{R and Voyant stopwordlist}
+\subsection{Journal for homework 2019-10-24}
+
+
+\textbf{10:49} I copy-pasted the Voyant stopwordlist into R 
+
+\textbf{10:51} I tried different combinations to see how to categorize the words
+
+\textbf{11:38} I typed ([\textbackslashæ]) in the top box, and in the substitution box i typed ae, to replace all æ with ae. I then copy-pasted the new substituted text up to the main text, to do it all again - only this time with the letter ø to oe. I did the same again with å to aa. 
+
+\textbf{11:41} I now have a text that is clean from æøå, and will try to isolate each word from the " and ,
+
+\textbf{11:45} If I type (\textbackslashw[a-z]+) i isolate each word - with a few exceptions of words with special characters that I will have to eliminate. 
+
+\textbf{11:49} I typed in ([",]) and in the substitution line typed in the dollarsign and the number 1 only to delete it again. I then typed in \textbackslash n in the substitution line, but found that it made too many new lines between each word. 
+
+\textbf{11:54} To see which other special characters there are, I isolate each word again, and find that the special characters that I need to eliminate are ü, é, ' and . 
+
+\textbf{12:00} I give up for now.
+https://regex101.com/r/oLiTiC/1
+
+\textbf{2019-10-29}I spoke to Mette Bonnema, and she explained to me how she had done it. I simply had to isolate the " and , by typing them once, and then copying the substitution line. 
+I then went on to help two of my fellow students with the same problem, and found it very usefull to have to explain it to someone else. 
+
+\pagebreak{}
+
+
+\section{RStudio}
+\subsection{Notes from lectures about RStudio}
+
+
+Wrote dit.create("data"), which created a new folder on my computer
+Wrote dir.create("./scripts"), which also created a new folder
+
+
+Getwd ()
+	- Means get working directory - the same as pwd in gitbash
+
+"hashtag"comment
+	- R ignores everything you write after the hashtag
+
+List.files 
+- you get a list of the content of the folder you are in
+
+
+When i need help i can write ?getwd, and it will appear with a help list that is way too complicated to actually help me with anything.
+
+Wrote getwd () and it created an absolute path to my position
+
+#creating objects in R
+12/4
+(area_hectares <- 1.0)
+
+	- Og så dukkede det op som en value ovre i vinduet til højre
+Jeg kan ændre på denne value ved fx at skrive area_hectares <- 2.5 eller et andet tal til sidst. 
+
+
+
+\end{document}
