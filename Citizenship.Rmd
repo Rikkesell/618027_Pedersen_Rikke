@@ -37,9 +37,6 @@ This assignment deals with a dataset containing information about the citizenshi
 The datset contains informations such as name, age, occupation, origin etc. from the applying citizen.
 
 
-* **How did de implementation of "Næringsfrihedsloven" (Law of freedom of trade) in 1857 affect the city of Aarhus regarding citizenships?**
-  + The law on freedom of trade was decided in December 1957 and implemented from April 1858. The law allowed anyone to posses any occupation, which meant that the monopoly that had been practiced previously - especially by the community of artisans and tradesmen - was dissolved. This might have meant that more people from the countryside wanted to try out an occupation in the city In 1857. 
-
 
 
 ## 3. Software Framework
@@ -101,9 +98,9 @@ Citizenships %>%
   geom_col() +
   xlab(NULL) +
   coord_flip() +
-      labs(x = "Count",
-      y = "Unique words",
-      title = "Count of unique words found in dkpol tweets")
+      labs(x = "Bye (City)",
+      y = "Granted citizenships",
+      title = "Cities in which the citizenships were granted")
 ```  
 <br>  
 As expected, the only city this dataset contains information about, is Aarhus, so it does not make sense to go any further with this particular thread.  
@@ -118,13 +115,13 @@ Citizenships %>%
   geom_col() +
   xlab(NULL) +
   coord_flip() +
-      labs(x = "aar",
+      labs(x = "Aar (Year)",
       y = "Granted citizenship",
       title = "Amount of people who were granted a citizenship in the given year")
 ```  
 <br>  
-As the graph implies, the year in which most new citizenships were granted in Aarhus, was 1858. There was a significant spike in citizenships compared to the year before, which leads to wonder if anything happened that would have changed the politics on the subject in Aarhus. The law on freedom of trade was decided in December 1957 and implemented from April 1858. The law allowed anyone to posses any occupation, which meant that the monopoly that had been practiced previously - especially by the community of artisans and tradesmen - was dissolved. This might have meant that more people from the countryside wanted to try out an occupation in the city
-In 1857, the law of (Næringsfrihedsloven)
+As the graph implies, the year in which most new citizenships were granted in Aarhus, was 1858. There was a significant spike in citizenships compared to the year before, which leads to wonder if anything happened that would have changed the politics on the subject in Aarhus. The law on freedom of trade was decided in December 1857 and implemented from April 1858. The law allowed anyone to posses any occupation, which meant that the monopoly that had been practiced previously - especially by the community of artisans and tradesmen - was dissolved. This might have meant that more people from the countryside wanted to try out an occupation in the city. 
+In order to verify the thesis that the spike in citizenships from 1857 to 1859 was a product of the new law on freedom of trade, I took a look at the occupations of these new citizens. 
 
 
 
@@ -137,12 +134,14 @@ Citizenships %>%
   geom_col() +
   xlab(NULL) +
   coord_flip() +
-      labs(x = "hovederhverv",
+      labs(x = "Hovederhverv (Occupation)",
       y = "Granted citizenship",
       title = "Citizenships sorted by Occupation and year")
 ```
 <br>
-After 1857, the citizenships were granted primarily to 
+After 1857, the citizenships were granted primarily to merchants and sailors. As a merchant, the limitations on the revenue were more fluid than in the more classical occupations such as carpenter, butcher or baker. This means that the chances of having a substantial (and maybe even growing) income when you were working as a merchant was significantly higher than the chances of the same if you were working with a handcraft such as carpentry. This could be the explanation as to why so many merchants were granted citizenships; they might not have been merchants by birthright, but with the new law, they may have decided to take their chances in this profession as opposed to their original line of profession. 
+
+To see if I could deduce any more relevant information from this dataset, I then set out to see where the new citizens had migrated from. 
 
 
 ```{r}
@@ -154,13 +153,14 @@ Citizenships %>%
   geom_col() +
   xlab(NULL) +
   coord_flip() +
-      labs(x = "oprindelsessted",
+      labs(x = "Oprindelsessted (place of origin)",
       y = "Granted citizenships",
-      title = "citizenships dispersed on place of origion")
+      title = "Citizenships dispersed on place of origion")
 ```
 <br>  
-mange hvor det ikke står
-nogle er anført i [] andre er ikke.. hvorfor? spørg readme. 
+As this graph implies, the origin of the citizens were for a large part left unanswered (NA). It is not possible to say with any certainty why so many have been left unanswered in this category. It could be an expression of indifference when the data was first written down, but it could just as well have been an unwillingness from the aplicants for citizenship to announce their place of origion. 
+
+Lastly, I decided to see if there was a similar spike in citizenships granted as in graph 2, if I isolated a specific place of origin, in this case the city of Randers. 
 
 ```{r}
 Citizenships %>%
@@ -172,17 +172,19 @@ Citizenships %>%
   geom_col() +
   xlab(NULL) +
   coord_flip() +
-      labs(x = "aar",
+      labs(x = "Aar (Year)",
       y = "Granted citizenship",
-      title = "Amount of people who were granted a citizenship in the given year")
+      title = "Citizenships granted to former inhabitants of the city of Randers")
 ```  
 
+<br>
+The city of Randers, which was chosen randomely from the list of places of origin, did not have a similar spike around the years 1857-1859. In fact, it did not have any registered citizens after 1817, where 2 people applied to get their citizenships transfered to Aarhus. Again, it is not possible to say with any certainty why there are no informations about citizens from Randers after 1817. 
 
 ## 6. Critical evaluation
 **Comparison with the state-of-the-art software if any (kindly cite relevant work, scripts, etc.)**
 **Evaluation of the learning process, time on task, vis-à-vis the product.**
 
-As discussed in section 3 with the title Software Framework, the scripts from the tidyverse - and RStudio in general, are open source. This means that it is not traceable back to a single author. Using other historiographic methods, this could pose a threat to the credibility of the source, but as stated earlier, the open source enhances the chances of cashing the flaws in any given script. On this basis, it is concluded that the RStudio and tidyverse are both trustworthy scripts when working with the digital methods in a historical research. 
+As discussed in section 3 with the title Software Framework, the scripts from the tidyverse - and RStudio in general, are open source. This means that it is not traceable back to a single author. Using other historiographic methods, this could pose a threat to the credibility of the source, but as stated earlier, the open source enhances the chances of catching the flaws in any given script. On this basis, it is concluded that the RStudio and tidyverse are both trustworthy scripts when working with the digital methods in a historical research. 
 
 The digital methods are highly usable in a case like this, to ensure a quick overview of the data, without having to scroll through the entire list of citizens. 
 
